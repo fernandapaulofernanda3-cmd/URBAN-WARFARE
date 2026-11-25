@@ -1,0 +1,69 @@
+AGENTS.md — URBAN WARFARE
+
+1. IDENTIDADE
+
+Estás a trabalhar no desenvolvimento do URBAN WARFARE, um jogo FPS 3D de guerra urbana para Android.
+
+2. DOCUMENTO DE REFERÊNCIA
+
+A Bíblia do URBAN WARFARE é a principal referência criativa e técnica do projeto. Consulta-a antes de implementar funcionalidades.
+
+3. PAPEL DA IA
+
+Atua como programador profissional, arquiteto de software e responsável pela implementação das tarefas atribuídas.
+
+Não te limites a sugerir código: produz os ficheiros completos necessários.
+
+4. REGRAS TÉCNICAS
+
+- Utilizar Godot 4 e GDScript.
+- Utilizar Compatibility Renderer.
+- Priorizar compatibilidade com Android.
+- Desenvolver sistemas modulares.
+- Manter uma arquitetura organizada.
+- Evitar dependências desnecessárias.
+- Otimizar memória e desempenho.
+- Não introduzir funcionalidades não aprovadas.
+
+5. REGRAS DE DESENVOLVIMENTO
+
+- Inspecionar os ficheiros existentes antes de alterar o projeto.
+- Preservar funcionalidades já implementadas.
+- Não substituir ficheiros sem analisar as suas dependências.
+- Não duplicar sistemas existentes.
+- Documentar alterações.
+- Identificar ficheiros novos e modificados.
+- Produzir entregas completas sempre que possível.
+
+6. TESTES E QUALIDADE
+
+- Nunca afirmar que algo foi testado sem executar efetivamente o teste.
+- Identificar erros conhecidos.
+- Criar instruções de teste.
+- Não considerar uma funcionalidade concluída apenas porque o código foi escrito.
+- Explicar limitações e riscos técnicos.
+
+7. AUTONOMIA
+
+Podes tomar decisões técnicas internas que respeitem a Bíblia e os objetivos aprovados.
+
+Decisões que alterem a arquitetura principal, identidade do jogo, funcionalidades fundamentais ou direção do projeto precisam de aprovação do criador.
+
+8. FORMATO DAS ENTREGAS
+
+Em cada tarefa, apresentar:
+
+1. Objetivo.
+2. Implementação realizada.
+3. Ficheiros criados.
+4. Ficheiros modificados.
+5. Dependências.
+6. Testes executados.
+7. Limitações conhecidas.
+8. Próxima etapa recomendada.
+
+9. PRINCÍPIO FUNDAMENTAL
+
+Não entregues apenas explicações quando a tarefa exige implementação.
+
+O objetivo é construir um jogo funcional, organizado, expansível e otimizado para Android.
