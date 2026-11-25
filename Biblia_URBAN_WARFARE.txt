@@ -1,0 +1,1123 @@
+# URBAN WARFARE
+
+## BÍBLIA DO PROJECTO — DIREÇÃO CRIATIVA, TÉCNICA E DESENVOLVIMENTO
+
+**Versão:** 1.0  
+**Estado:** Projecto em planeamento e preparação técnica  
+**Nome de trabalho:** URBAN WARFARE  
+**Plataforma principal:** Android  
+**Motor de jogo:** Godot Engine 4  
+**Linguagem principal:** GDScript  
+**Responsável pelo projecto:** Criador do projecto  
+**Documento destinado a:** Todas as inteligências artificiais, ferramentas e colaboradores envolvidos no desenvolvimento.
+
+---
+
+# 1. INSTRUÇÃO FUNDAMENTAL PARA TODAS AS IAs
+
+Antes de executar qualquer tarefa relacionada com este projecto, lê e considera este documento como a principal referência de orientação.
+
+Não trates os pedidos isoladamente. Cada tarefa faz parte de um jogo maior e deve respeitar a sua visão, arquitetura, identidade e objetivos.
+
+A tua função é contribuir para a construção de um FPS 3D de guerra urbana para Android, com possibilidade de partidas offline, multiplayer por rede LAN, inteligência artificial de combate, missões e progressão.
+
+## Regras obrigatórias
+
+1. Não inventes funcionalidades ou decisões que não foram aprovadas.
+2. Não alteres a arquitetura geral sem explicar o motivo e apresentar as consequências.
+3. Não substituas sistemas existentes sem verificar a sua função e dependências.
+4. Não cries soluções temporárias que prejudiquem a expansão futura do jogo.
+5. Não assumes que uma funcionalidade está concluída só porque escreveste o código.
+6. Não entregues código incompleto como se fosse funcional.
+7. Não uses pseudocódigo quando a tarefa exige código executável.
+8. Não omitas ficheiros, dependências, configurações ou instruções necessárias para executar uma implementação.
+9. Considera sempre as limitações de desempenho dos telemóveis Android.
+10. Se uma ordem futura contradisser este documento, identifica o conflito e segue a nova decisão explícita do responsável pelo projecto.
+
+**Princípio central:** construir um jogo funcional, modular, expansível e tecnicamente coerente, não apenas produzir demonstrações visuais.
+
+---
+
+# 2. VISÃO GERAL DO PROJECTO
+
+URBAN WARFARE é um jogo de tiro em primeira pessoa (FPS), com temática de guerra urbana, desenvolvido prioritariamente para dispositivos Android.
+
+O jogo deverá oferecer experiências de combate em ambientes urbanos, com ruas, edifícios, becos, zonas industriais, estabelecimentos comerciais, coberturas e diferentes áreas estratégicas.
+
+A experiência deve combinar:
+
+- Combate em primeira pessoa.
+- Movimentação fluida.
+- Armas com comportamentos distintos.
+- Inteligência artificial inimiga.
+- Partidas contra bots.
+- Multiplayer local por rede LAN.
+- Missões com objetivos.
+- Diferentes modos de jogo.
+- Progressão individual.
+- Personalização de equipamentos.
+- Possibilidade de expansão para multiplayer online.
+
+O objectivo não é reproduzir outro jogo comercial. É construir uma identidade própria, com sistemas bem organizados e uma experiência de combate consistente.
+
+## Filosofia do projecto
+
+O jogo deve ser:
+
+- Táctico, mas acessível.
+- Visualmente convincente, sem exigir gráficos excessivamente pesados.
+- Competitivo, sem depender exclusivamente de multiplayer.
+- Expansível, sem precisar reconstruir o projecto a cada nova funcionalidade.
+- Jogável em dispositivos Android compatíveis.
+- Independente de uma ligação à internet nas experiências offline e LAN.
+
+---
+
+# 3. IDENTIDADE CRIATIVA E DIREÇÃO VISUAL
+
+## 3.1. Estilo visual
+
+A direção visual pretendida é de realismo optimizado.
+
+Não queremos gráficos extremamente simples que pareçam um protótipo escolar. Também não queremos gráficos fotorealistas que tornem o jogo impraticável em telemóveis.
+
+O equilíbrio pretendido inclui:
+
+- Modelos 3D com proporções realistas.
+- Ambientes urbanos detalhados.
+- Arquitectura contemporânea.
+- Texturas optimizadas.
+- Iluminação coerente.
+- Sombras controladas.
+- Efeitos visuais de combate moderados.
+- Animações convincentes.
+- Interface moderna e legível.
+
+A qualidade deve resultar da combinação de bons modelos, composição, iluminação, animação e efeitos — não apenas da quantidade de polígonos.
+
+## 3.2. Ambientes
+
+Os mapas poderão incluir:
+
+- Ruas urbanas.
+- Edifícios residenciais.
+- Edifícios comerciais.
+- Becos e passagens estreitas.
+- Estacionamentos.
+- Zonas industriais.
+- Armazéns.
+- Telhados e coberturas.
+- Praças e cruzamentos.
+- Áreas de confronto aberto.
+
+Os mapas devem ter variedade estratégica, permitindo diferentes estilos de combate.
+
+## 3.3. Direção de interface
+
+A interface deve apresentar uma linguagem visual militar e tecnológica, sem excesso de elementos.
+
+Elementos previstos:
+
+- Indicador de vida.
+- Munições e carregador.
+- Arma equipada.
+- Indicador de equipa.
+- Pontuação.
+- Cronómetro.
+- Mapa ou radar, quando aplicável.
+- Sinalização de inimigos.
+- Objectivos da missão.
+- Menu de pausa.
+- Ecrã de resultados.
+
+A interface deve ser adaptada a ecrãs tácteis, com botões suficientemente grandes e posicionamento personalizável sempre que viável.
+
+Não encher o ecrã com informação desnecessária.
+
+---
+
+# 4. PLATAFORMA E RESTRIÇÕES TÉCNICAS
+
+## Plataforma principal
+
+Android.
+
+## Motor
+
+Godot Engine 4.
+
+## Linguagem
+
+GDScript.
+
+## Renderização
+
+Compatibility Renderer, como opção inicial para melhorar a compatibilidade com dispositivos móveis.
+
+## Orientação de desenvolvimento
+
+O projecto está a ser desenvolvido com recursos limitados e com utilização de um telemóvel Android como principal equipamento de desenvolvimento.
+
+Consequentemente, todas as IAs devem:
+
+- Priorizar soluções que possam ser implementadas no editor Godot para Android.
+- Evitar dependências exclusivas de computadores.
+- Evitar C# e funcionalidades que exijam uma cadeia de ferramentas desktop, salvo aprovação.
+- Evitar plugins nativos desnecessários.
+- Preferir GDScript.
+- Evitar bibliotecas externas pesadas.
+- Organizar os ficheiros para facilitar a importação e gestão através do Android.
+- Fornecer instruções simples para cada operação.
+- Considerar limitações de RAM, CPU, GPU e armazenamento.
+
+**Importante:** não assumir especificações exactas do dispositivo de desenvolvimento sem confirmação.
+
+---
+
+# 5. ESTRUTURA GERAL DO JOGO
+
+O jogo deverá possuir cinco grandes experiências principais.
+
+## MODO 1 — SOLO VS COMPUTADOR
+
+Um jogador enfrenta inimigos controlados pela inteligência artificial.
+
+Características:
+
+- Um jogador humano.
+- Bots inimigos.
+- Diferentes níveis de dificuldade.
+- Mapas seleccionáveis.
+- Configuração de regras.
+- Possibilidade de jogar sem internet.
+
+## MODO 2 — COOPERATIVO VS COMPUTADOR
+
+Dois ou mais jogadores humanos cooperam contra bots.
+
+Características:
+
+- Jogadores na mesma equipa.
+- Inimigos controlados pela IA.
+- Possibilidade de diferentes quantidades de bots.
+- Objectivos cooperativos.
+- Possibilidade de partidas LAN.
+
+## MODO 3 — MISSÕES
+
+Uma experiência orientada por objectivos.
+
+Este modo deverá possuir três categorias:
+
+### A. Campanha
+
+Conjunto de missões interligadas por uma progressão narrativa.
+
+Poderá incluir:
+
+- Introdução à história.
+- Missões sequenciais.
+- Objectivos progressivos.
+- Diferentes cenários.
+- Desbloqueios.
+
+### B. Sobrevivência
+
+O jogador ou equipa enfrenta vagas sucessivas de inimigos.
+
+Características:
+
+- Ondas de dificuldade crescente.
+- Intervalos entre vagas.
+- Contagem de eliminações.
+- Duração variável.
+- Possibilidade de jogar sozinho ou em equipa.
+
+### C. Missões independentes
+
+Missões que podem ser jogadas separadamente.
+
+Exemplos de objectivos:
+
+- Ataque a uma posição.
+- Defesa de uma área.
+- Resgate.
+- Protecção de um ponto.
+- Eliminação de alvos.
+- Extração.
+- Recuperação de objectos.
+
+Estas missões poderão ser realizadas individualmente ou em equipa, conforme a configuração.
+
+## MODO 4 — 1 VS 1
+
+Dois jogadores humanos enfrentam-se.
+
+Características:
+
+- Um jogador por equipa.
+- Possibilidade de diferentes mapas.
+- Regras configuráveis.
+- Limite de eliminações.
+- Duração configurável.
+- LAN como modalidade prioritária.
+
+## MODO 5 — EQUIPA VS EQUIPA
+
+Modo de combate entre duas equipas.
+
+A quantidade de jogadores não deve estar limitada a equipas obrigatoriamente iguais.
+
+Exemplos:
+
+- 1 vs 1.
+- 1 vs 4.
+- 2 vs 7.
+- 5 vs 5.
+- 8 vs 8.
+- 10 vs 10.
+- 12 vs 12.
+
+O sistema deverá permitir configurações equilibradas ou desequilibradas.
+
+O objectivo técnico de longo prazo é suportar até 20–24 jogadores humanos numa partida, desde que os testes de desempenho comprovem essa capacidade.
+
+Esta quantidade é uma meta, não uma capacidade já garantida.
+
+---
+
+# 6. SISTEMA DE PARTIDAS E CONFIGURAÇÃO
+
+Todos os modos devem utilizar um núcleo comum de gestão de partidas.
+
+Não criar um sistema independente de partidas para cada modo.
+
+O sistema deverá ter como referências principais:
+
+- MatchManager.
+- MatchConfig.
+- GameRules.
+- SessionManager.
+
+## Configurações previstas
+
+O jogador deverá poder configurar:
+
+1. Modo de jogo.
+2. Mapa.
+3. Quantidade de jogadores da equipa A.
+4. Quantidade de jogadores da equipa B.
+5. Quantidade de bots da equipa A.
+6. Quantidade de bots da equipa B.
+7. Dificuldade dos bots.
+8. Duração da partida.
+9. Sistema de respawn.
+10. Friendly fire.
+11. Limite de eliminações.
+12. Distribuição manual ou automática das equipas.
+13. Presença ou ausência de bots.
+
+Os bots devem ser opcionais.
+
+Quando desactivados, a partida deve funcionar exclusivamente com jogadores humanos.
+
+O sistema deverá permitir que uma equipa tenha bots e a outra não, quando a configuração assim determinar.
+
+---
+
+# 7. INTELIGÊNCIA ARTIFICIAL DOS BOTS
+
+Os bots devem apresentar comportamentos convincentes.
+
+Não devem ser apenas inimigos que detectam o jogador e disparam imediatamente.
+
+## Comportamentos pretendidos
+
+- Patrulhar.
+- Detectar jogadores.
+- Investigar ruídos ou ameaças, quando implementado.
+- Procurar cobertura.
+- Perseguir alvos.
+- Atacar.
+- Recuar.
+- Reposicionar-se.
+- Defender posições.
+- Cooperar com outros bots, quando aplicável.
+- Reagir à presença de inimigos.
+
+## Dificuldades
+
+### Fácil
+
+- Detecção menos eficiente.
+- Reacção mais lenta.
+- Decisões tácticas simples.
+
+### Normal
+
+- Comportamento equilibrado.
+- Reacção razoável.
+- Capacidade básica de procurar cobertura.
+
+### Difícil
+
+- Detecção mais eficiente.
+- Reacção mais rápida.
+- Melhor utilização de cobertura.
+- Maior capacidade de perseguição e reposicionamento.
+
+### Elite
+
+- Melhor coordenação.
+- Maior capacidade de antecipação.
+- Decisões tácticas mais eficientes.
+- Maior pressão sobre os adversários.
+
+A dificuldade não deve ser alterada apenas aumentando a precisão ou a quantidade de vida.
+
+Deve modificar o comportamento e a tomada de decisões.
+
+## Arquitectura de IA
+
+Considerar sistemas separados:
+
+- BotController.
+- PerceptionSystem.
+- NavigationSystem.
+- TacticalBehaviour.
+- DifficultyManager.
+
+Utilizar NavigationAgent3D quando adequado.
+
+---
+
+# 8. SISTEMA DE COMBATE
+
+O combate é uma das prioridades centrais do projecto.
+
+## Mecânicas principais
+
+- Disparo.
+- Mira.
+- Recarga.
+- Munições.
+- Recuo.
+- Dano.
+- Vida.
+- Eliminações.
+- Morte.
+- Respawn.
+- Troca de armas.
+- Detecção de impactos.
+
+## Armas
+
+O jogo poderá incluir diferentes categorias:
+
+- Pistolas.
+- Espingardas de assalto.
+- Submetralhadoras.
+- Espingardas de precisão.
+- Caçadeiras.
+- Metralhadoras.
+
+Cada arma deverá possuir características próprias:
+
+- Dano.
+- Cadência de tiro.
+- Capacidade do carregador.
+- Tempo de recarga.
+- Recuo.
+- Precisão.
+- Alcance.
+- Animações.
+- Efeitos sonoros.
+
+A arquitectura deverá permitir adicionar novas armas sem reescrever o sistema de combate.
+
+## Controlos
+
+Os controlos devem ser pensados para ecrãs tácteis.
+
+Elementos previstos:
+
+- Joystick virtual para movimentação.
+- Botão de disparo.
+- Botão de mira.
+- Botão de recarga.
+- Botão de salto.
+- Botão de agachamento.
+- Botão de corrida.
+- Botão de troca de arma.
+
+A disposição poderá evoluir conforme os testes de usabilidade.
+
+---
+
+# 9. MOVIMENTAÇÃO DO JOGADOR
+
+O jogador deverá ter um sistema de movimentação em primeira pessoa.
+
+Mecânicas previstas:
+
+- Caminhar.
+- Correr.
+- Saltar.
+- Agachar.
+- Controlar a câmara.
+- Movimentar-se lateralmente.
+- Apontar e disparar durante a movimentação, conforme as regras do jogo.
+
+A movimentação deve ser fluida e responsiva.
+
+Evitar movimentos excessivamente rígidos, acelerações artificiais ou controlos imprecisos.
+
+Arquitectura sugerida:
+
+- PlayerController.
+- CameraController.
+- TouchController.
+- HealthSystem.
+- InventorySystem.
+
+---
+
+# 10. MULTIPLAYER POR REDE LAN
+
+O multiplayer LAN é uma das funcionalidades prioritárias.
+
+O jogo deverá permitir que vários dispositivos Android participem numa mesma partida através de uma rede local.
+
+## Arquitectura inicial
+
+Utilizar ENet/UDP através dos recursos de rede do Godot.
+
+Modelo inicial: Host Authority.
+
+Um jogador cria uma sala e assume a função de anfitrião e autoridade da partida.
+
+Os restantes jogadores ligam-se ao anfitrião.
+
+## Funcionalidades previstas
+
+- Criar sala.
+- Entrar numa sala.
+- Descobrir partidas locais, se tecnicamente viável.
+- Introduzir endereço IP manualmente como alternativa.
+- Seleccionar equipas.
+- Sincronizar jogadores.
+- Sincronizar movimentos.
+- Sincronizar disparos e danos.
+- Sincronizar eliminações.
+- Sincronizar resultados.
+- Gerir desconexões.
+
+## Escalabilidade
+
+O desenvolvimento deve avançar por etapas:
+
+1. Testar dois dispositivos.
+2. Testar quatro jogadores.
+3. Testar oito jogadores.
+4. Testar doze jogadores.
+5. Avaliar vinte jogadores.
+6. Avaliar vinte e quatro jogadores.
+
+Não assumir que o sistema suporta 24 jogadores antes de testes reais.
+
+## Multiplayer online futuro
+
+A possibilidade de jogar através da internet poderá ser considerada numa fase posterior.
+
+Não confundir LAN com multiplayer pela internet.
+
+O multiplayer online poderá exigir:
+
+- Servidor dedicado ou serviço de relay.
+- Travessia de NAT.
+- Gestão de salas.
+- Segurança de ligações.
+- Autenticação.
+- Infraestrutura adicional.
+
+A arquitectura deve evitar bloquear essa possibilidade, mas não deve comprometer o desenvolvimento inicial por causa dela.
+
+---
+
+# 11. VEÍCULOS
+
+O projecto prevê a inclusão de viaturas funcionais em fases posteriores.
+
+Exemplos:
+
+- Jipes.
+- Veículos militares.
+- Viaturas de transporte.
+- Veículos de patrulha.
+
+Funcionalidades futuras:
+
+- Entrar e sair de veículos.
+- Conduzir.
+- Transportar jogadores.
+- Integrar veículos nos mapas.
+- Interagir com o ambiente.
+
+O sistema deve ser modular.
+
+Não desenvolver veículos antes de existir uma base funcional de movimentação, combate e gestão de partidas.
+
+---
+
+# 12. MAPAS E AMBIENTES
+
+Os mapas são fundamentais para a identidade do jogo.
+
+A prioridade inicial é criar um pequeno mapa de treino urbano.
+
+Posteriormente, poderão ser desenvolvidos mapas maiores e mais complexos.
+
+## Requisitos dos mapas
+
+- Rotas alternativas.
+- Coberturas.
+- Pontos estratégicos.
+- Diferentes distâncias de combate.
+- Áreas abertas e fechadas.
+- Entradas e saídas.
+- Pontos de respawn.
+- Navegação adequada para bots.
+
+A construção deve considerar desempenho.
+
+Evitar mapas enormes e cheios de objectos sem necessidade.
+
+---
+
+# 13. PROGRESSÃO E PERFIL DO JOGADOR
+
+O jogo deverá possuir progressão individual.
+
+Elementos previstos:
+
+- Perfil.
+- Experiência (XP).
+- Níveis.
+- Estatísticas.
+- Eliminações.
+- Mortes.
+- Vitórias.
+- Derrotas.
+- Desbloqueios.
+- Equipamentos.
+- Loadouts.
+
+## Persistência
+
+Os dados individuais devem ser guardados localmente.
+
+A arquitectura poderá permitir sincronização online futura, mas o funcionamento básico não deve depender de servidores externos.
+
+Sistemas previstos:
+
+- PlayerProfile.
+- ExperienceSystem.
+- UnlockSystem.
+- LoadoutManager.
+- SaveManager.
+
+---
+
+# 14. ARQUITECTURA TÉCNICA GERAL
+
+A organização deve ser modular.
+
+## Módulos principais
+
+### Core
+
+- GameManager.
+- MatchManager.
+- SessionManager.
+- GameRules.
+
+### Player
+
+- PlayerController.
+- CameraController.
+- HealthSystem.
+- InventorySystem.
+- TouchController.
+
+### Combat
+
+- WeaponSystem.
+- ProjectileSystem ou HitDetection.
+- DamageSystem.
+- RespawnSystem.
+
+### AI
+
+- BotController.
+- PerceptionSystem.
+- NavigationSystem.
+- TacticalBehaviour.
+- DifficultyManager.
+
+### Networking
+
+- NetworkManager.
+- HostManager.
+- LobbyManager.
+- StateSynchronizer.
+- ConnectionManager.
+
+### Missions
+
+- CampaignManager.
+- MissionManager.
+- ObjectiveManager.
+- WaveManager.
+
+### World
+
+- MapManager.
+- SpawnManager.
+- EnvironmentManager.
+- VehicleSystem.
+
+### Progression
+
+- PlayerProfile.
+- ExperienceSystem.
+- UnlockSystem.
+- LoadoutManager.
+- SaveManager.
+
+## Autoloads
+
+Poderão ser utilizados:
+
+- GameManager.
+- MatchManager.
+- NetworkManager.
+- ProfileManager.
+- SaveManager.
+- AudioManager.
+
+Não transformar todos os objectos do jogo em Autoloads.
+
+Jogadores, armas, bots e elementos de mapas devem pertencer às cenas e sistemas adequados.
+
+---
+
+# 15. ESTRUTURA DE PASTAS
+
+Estrutura inicial recomendada:
+
+URBAN_WARFARE/
+
+- project.godot
+- scenes/
+  - main/
+  - menus/
+  - lobby/
+  - gameplay/
+  - maps/
+  - player/
+  - bots/
+  - weapons/
+  - vehicles/
+  - missions/
+  - ui/
+- scripts/
+  - core/
+  - player/
+  - combat/
+  - ai/
+  - networking/
+  - matchmaking/
+  - missions/
+  - progression/
+  - world/
+  - ui/
+- resources/
+- assets/
+  - models/
+  - textures/
+  - audio/
+  - animations/
+  - icons/
+- data/
+  - weapons/
+  - maps/
+  - missions/
+  - bots/
+- tests/
+- documentation/
+
+As pastas poderão ser adaptadas conforme a evolução, mas a organização deve continuar lógica e consistente.
+
+---
+
+# 16. DESEMPENHO E OPTIMIZAÇÃO
+
+O jogo será desenvolvido para Android.
+
+A prioridade é alcançar uma experiência estável, não apenas apresentar gráficos impressionantes.
+
+## Metas iniciais
+
+- Compatibilidade com dispositivos Android adequados.
+- Meta inicial de 30 FPS.
+- Reduzir consumo de memória.
+- Controlar quantidade de objectos simultâneos.
+- Limitar efeitos visuais desnecessários.
+- Optimizar texturas.
+- Utilizar modelos 3D adequados à plataforma.
+- Evitar processamento excessivo por frame.
+- Reduzir chamadas de rede.
+- Sincronizar apenas os dados necessários.
+
+## Princípios de optimização
+
+1. Começar com mapas pequenos.
+2. Utilizar modelos low-poly detalhados quando adequado.
+3. Controlar a quantidade de polígonos.
+4. Evitar texturas excessivamente grandes.
+5. Utilizar iluminação económica.
+6. Controlar sombras.
+7. Evitar partículas em excesso.
+8. Utilizar object pooling quando justificar.
+9. Optimizar a inteligência artificial dos bots.
+10. Testar frequentemente em dispositivos reais.
+
+A optimização não deve ser deixada apenas para o final.
+
+---
+
+# 17. PLANO DE DESENVOLVIMENTO
+
+O projecto deve ser construído em etapas.
+
+Não tentar desenvolver todos os sistemas ao mesmo tempo.
+
+## FASE 1 — FUNDAÇÃO
+
+- Criar o projecto Godot.
+- Configurar o motor.
+- Criar a cena principal.
+- Implementar o jogador.
+- Implementar a câmara.
+- Criar o primeiro cenário de teste.
+- Implementar controlos tácteis.
+- Testar movimentação.
+
+## FASE 2 — COMBATE
+
+- Criar a primeira arma.
+- Implementar disparo.
+- Implementar recuo.
+- Implementar munições.
+- Implementar vida.
+- Implementar dano.
+- Implementar morte.
+- Implementar respawn.
+
+## FASE 3 — INTELIGÊNCIA ARTIFICIAL
+
+- Criar primeiro bot.
+- Implementar patrulha.
+- Implementar detecção.
+- Implementar perseguição.
+- Implementar ataque.
+- Implementar morte.
+- Implementar dificuldades.
+
+## FASE 4 — MOTOR DE PARTIDAS
+
+- Criar MatchManager.
+- Criar MatchConfig.
+- Implementar equipas variáveis.
+- Implementar bots opcionais.
+- Implementar regras.
+- Implementar condições de vitória.
+- Preparar os diferentes modos.
+
+## FASE 5 — MULTIPLAYER LAN
+
+- Criar NetworkManager.
+- Criar sala.
+- Ligar dois dispositivos.
+- Sincronizar jogadores.
+- Sincronizar movimentos.
+- Sincronizar combate.
+- Testar partidas.
+- Aumentar gradualmente o número de jogadores.
+
+## FASE 6 — MISSÕES E PROGRESSÃO
+
+- Criar sistema de missões.
+- Criar sobrevivência por ondas.
+- Implementar objectivos.
+- Implementar perfil.
+- Implementar XP.
+- Implementar estatísticas.
+- Implementar desbloqueios.
+
+## FASE 7 — MAPAS E VEÍCULOS
+
+- Criar mapas urbanos.
+- Melhorar ambientes.
+- Adicionar novos pontos estratégicos.
+- Implementar veículos.
+- Testar navegação e desempenho.
+
+## FASE 8 — EXPANSÃO E POLIMENTO
+
+- Melhorar interface.
+- Melhorar animações.
+- Melhorar áudio.
+- Melhorar efeitos.
+- Testar escalabilidade.
+- Corrigir erros.
+- Optimizar.
+- Preparar versões de distribuição.
+
+---
+
+# 18. PRIMEIRO PROTÓTIPO FUNCIONAL
+
+A primeira versão jogável não deve tentar incluir o jogo inteiro.
+
+O objectivo é provar que o núcleo funciona.
+
+## Protótipo 0.1
+
+Deve conter:
+
+- Um pequeno mapa urbano.
+- Um jogador humano.
+- Uma arma.
+- Um bot inimigo.
+- Movimentação.
+- Câmara em primeira pessoa.
+- Disparo.
+- Vida e dano.
+- Eliminações.
+- Interface básica.
+- Condição de vitória.
+
+## Critério de aprovação
+
+O jogador deve conseguir:
+
+1. Entrar na partida.
+2. Movimentar-se.
+3. Encontrar o bot.
+4. Disparar.
+5. Atingir o inimigo.
+6. Eliminar o inimigo.
+7. Terminar a partida.
+
+Só depois de este ciclo funcionar de forma consistente se deve avançar para sistemas mais complexos.
+
+---
+
+# 19. METODOLOGIA DE TRABALHO COM INTELIGÊNCIAS ARTIFICIAIS
+
+As IAs são ferramentas de desenvolvimento do projecto.
+
+Cada IA poderá assumir tarefas diferentes, mas todas devem respeitar este documento.
+
+## Responsabilidades possíveis
+
+### Arquitectura e planeamento
+
+- Analisar requisitos.
+- Dividir funcionalidades.
+- Organizar sistemas.
+- Identificar dependências.
+- Avaliar decisões técnicas.
+
+### Programação
+
+- Criar scripts GDScript.
+- Criar cenas.
+- Implementar funcionalidades.
+- Corrigir erros.
+- Melhorar código existente.
+
+### Design
+
+- Criar conceitos visuais.
+- Desenvolver interfaces.
+- Preparar referências de mapas.
+- Criar identidade visual.
+- Sugerir modelos e recursos.
+
+### Revisão técnica
+
+- Procurar erros.
+- Identificar conflitos.
+- Verificar compatibilidade.
+- Avaliar desempenho.
+- Sugerir melhorias.
+
+## Regras de entrega de código
+
+Sempre que uma IA desenvolver uma funcionalidade, deverá apresentar:
+
+1. Nome da funcionalidade.
+2. Objectivo.
+3. Ficheiros criados.
+4. Ficheiros alterados.
+5. Localização exacta de cada ficheiro.
+6. Código completo.
+7. Dependências.
+8. Instruções de instalação.
+9. Instruções de teste.
+10. Resultado esperado.
+11. Limitações conhecidas.
+
+Quando possível, preferir entregar um pacote ZIP completo com a estrutura de pastas correcta.
+
+Quando não for possível, entregar os ficheiros individualmente, identificados de forma clara.
+
+Nunca entregar apenas fragmentos de código sem explicar exactamente onde devem ser colocados.
+
+## Regra de compatibilidade
+
+Antes de alterar um sistema existente, a IA deve perguntar ou verificar:
+
+- Qual é a versão actual?
+- Que ficheiros já existem?
+- Que sistemas dependem dele?
+- A alteração pode quebrar funcionalidades anteriores?
+- É necessário actualizar outros ficheiros?
+
+Não assumir que o projecto está vazio.
+
+## Regra de honestidade técnica
+
+Uma IA não pode afirmar que testou um código no Godot se não executou realmente esse teste.
+
+Deve distinguir:
+
+- Código escrito.
+- Código analisado.
+- Código executado.
+- Funcionalidade testada num dispositivo.
+- Funcionalidade confirmada em multiplayer.
+
+---
+
+# 20. SISTEMA DE VERSÕES E CONTROLO DE ALTERAÇÕES
+
+O projecto deve evoluir por versões pequenas e identificáveis.
+
+Exemplo:
+
+- 0.01 — Projecto inicial.
+- 0.02 — Movimentação.
+- 0.03 — Controlos tácteis.
+- 0.04 — Primeira arma.
+- 0.05 — Vida e dano.
+- 0.06 — Primeiro bot.
+- 0.07 — Gestão de partidas.
+- 0.08 — Primeira experiência LAN.
+
+Cada nova versão deverá indicar:
+
+- O que foi acrescentado.
+- O que foi corrigido.
+- O que foi removido.
+- O que ainda não funciona.
+- Quais são os próximos passos.
+
+Manter cópias de segurança antes de alterações estruturais.
+
+Não substituir uma versão funcional sem preservar uma cópia recuperável.
+
+---
+
+# 21. AUTORIDADE E EVOLUÇÃO DO PROJECTO
+
+Este documento representa a visão actual, não uma prisão criativa.
+
+O responsável pelo projecto pode alterar:
+
+- Nome.
+- Identidade visual.
+- Mecânicas.
+- Modos de jogo.
+- Arquitectura.
+- Ferramentas.
+- Prioridades.
+- Requisitos técnicos.
+- Direção criativa.
+- Plano de desenvolvimento.
+
+Quando receberes uma nova ordem explícita que altera uma decisão anterior:
+
+1. Identifica a decisão antiga.
+2. Identifica a nova decisão.
+3. Analisa os impactos técnicos.
+4. Explica se existem incompatibilidades.
+5. Propõe uma adaptação.
+6. Implementa a nova orientação após aprovação, quando a mudança exigir confirmação.
+
+A decisão mais recente e explícita do responsável pelo projecto prevalece sobre este documento.
+
+Não confundas uma sugestão com uma decisão aprovada.
+
+---
+
+# 22. PRINCÍPIOS INEGOCIÁVEIS
+
+Independentemente das alterações futuras, as seguintes práticas devem ser preservadas:
+
+- Priorizar uma experiência funcional.
+- Desenvolver de forma modular.
+- Respeitar as limitações Android.
+- Testar cada sistema.
+- Evitar código desnecessariamente complexo.
+- Não inventar resultados de testes.
+- Não comprometer a estabilidade por funcionalidades prematuras.
+- Manter documentação.
+- Preservar versões funcionais.
+- Pensar na expansão futura.
+- Manter coerência entre os diferentes sistemas.
+
+---
+
+# 23. INSTRUÇÃO FINAL PARA QUALQUER IA
+
+A partir deste documento, considera-te parte da equipa técnica e criativa responsável pelo desenvolvimento do URBAN WARFARE.
+
+Não quero respostas genéricas sobre como criar jogos.
+
+Quero soluções aplicáveis a este projecto específico.
+
+Quando receberes uma tarefa:
+
+1. Compreende o objectivo.
+2. Consulta a visão geral do projecto.
+3. Identifica os sistemas envolvidos.
+4. Verifica as dependências.
+5. Propõe a implementação mais adequada.
+6. Considera o desempenho Android.
+7. Entrega os recursos completos.
+8. Explica como integrar.
+9. Define como testar.
+10. Identifica limitações e riscos.
+
+Se uma tarefa for demasiado grande, divide-a em etapas executáveis.
+
+Se uma ideia não for tecnicamente viável, explica porquê e apresenta uma alternativa.
+
+Se houver uma solução mais eficiente do que a inicialmente solicitada, apresenta-a com argumentos concretos.
+
+**O objectivo não é simplesmente criar um jogo que funcione. É construir um FPS urbano com identidade própria, sistemas sólidos, combate consistente, inteligência artificial convincente e uma arquitectura capaz de crescer sem precisar de ser reconstruída do zero.**
+
+FIM DO DOCUMENTO — URBAN WARFARE v1.0
